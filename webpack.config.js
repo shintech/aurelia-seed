@@ -1,5 +1,13 @@
-const path = require('path')
 const { AureliaPlugin } = require('aurelia-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: path.join(__dirname, 'src', 'app', 'index.html'),
+  filename: 'index.html',
+  inject: 'body'
+})
+
 const target = process.env['TARGET'] || 'http://localhost:8000/'
 
 module.exports = {
@@ -8,7 +16,6 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist', 'app'),
-    publicPath: '/dist/app/',
     filename: 'bundle.js'
   },
 
@@ -26,7 +33,8 @@ module.exports = {
   },
 
   plugins: [
-    new AureliaPlugin({ includeAll: 'src/app' })
+    new AureliaPlugin({ includeAll: 'src/app' }),
+    HtmlWebpackPluginConfig
   ],
 
   devServer: {

@@ -1,7 +1,7 @@
-import read from './read'
+import _read from './read'
 
 export default function (options) {
   return {
-    read: read(options)
+    read: _read(options)
   }
 }
