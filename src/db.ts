@@ -14,7 +14,7 @@ export default function (options) {
   const databaseName = connectionString.split('/')
 
   if (environment === 'development') {
-    logger.info(`Connected to database: ${chalk.bgBlack.green(databaseName[databaseName.length - 1])}`)
+    logger.info(`Connected to database: ${chalk.bgBlack.green(databaseName[databaseName.length - 1])}...`)
   }
 
   return init

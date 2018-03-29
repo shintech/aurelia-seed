@@ -2,7 +2,7 @@ import {HttpClient} from 'aurelia-fetch-client'
 
 let client = new HttpClient()
 
-export class Content {
+export class About {
   public message
   
   constructor () {
