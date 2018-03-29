@@ -5,6 +5,6 @@ export function configure(aurelia: Aurelia) {
    .standardConfiguration()
    .developmentLogging()
    .globalResources(PLATFORM.moduleName('converters/upper'))
-   
+
   aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')))
 }

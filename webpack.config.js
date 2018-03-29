@@ -26,5 +26,9 @@ module.exports = {
 
   plugins: [
     new AureliaPlugin({ includeAll: 'app' })
-  ]
+  ],
+
+  devServer: {
+    disableHostCheck: true
+  }
 }
