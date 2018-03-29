@@ -1,6 +1,6 @@
 import { Router, RouterConfiguration } from 'aurelia-router'
 import {PLATFORM} from 'aurelia-pal'
-import '../less/index.less';
+import '../../public/less/index.less';
 
 export class App {
   router: Router

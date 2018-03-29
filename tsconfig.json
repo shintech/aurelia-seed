@@ -1,11 +1,22 @@
 {
   "compilerOptions": { 
     "target": "es6",
-    "module": "es6",
+    "module": "commonjs",
     "moduleResolution": "node",  
     "lib": [ "es6", "dom" ],
     "importHelpers": true,
-    
-    "experimentalDecorators": true
-  }
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "files": [
+    "./node_modules/@types/node/index.d.ts"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/app"
+  ]    
 }
