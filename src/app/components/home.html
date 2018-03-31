@@ -1,3 +1,5 @@
 <template>
-  <button click.delegate="myFunction()">Click</button>
+  <h3>Home</h3>
+  <button class="${val ? 'active' : null}" click.delegate="myFunction()">${val}</button>
+  <hr>
 </template>

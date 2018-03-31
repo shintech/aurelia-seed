@@ -36,6 +36,7 @@ module.exports = {
     new AureliaPlugin({ includeAll: 'src/app' }),
     HtmlWebpackPluginConfig
   ],
+  devtool: 'source-map',
 
   devServer: {
     disableHostCheck: true,

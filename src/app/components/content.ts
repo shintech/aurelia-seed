@@ -1,3 +1,3 @@
 export class Content {
-  message = 'Aurelia Demo'
+  message = 'Two Way Data Binding'
 }

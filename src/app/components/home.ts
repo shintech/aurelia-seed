@@ -1,5 +1,12 @@
 export class Home {
+  public val
+  
+  constructor () {
+    this.val = false
+  }
+  
   myFunction () {
-    console.log('click...')
+    this.val = !this.val
+    console.log(`click - val = ${this.val}`)
   }
 }

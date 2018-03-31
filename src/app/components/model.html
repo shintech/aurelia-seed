@@ -1,1 +1,9 @@
-<h1></h1>
+<template>
+  <h2>Models</h2>
+  
+  <ul>
+    <li repeat.for="item of data">
+      <compose view="./model-view.html" containerless></compose>
+    </li>
+  </ul>
+</template>
