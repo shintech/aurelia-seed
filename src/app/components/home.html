@@ -1,5 +1,10 @@
 <template>
   <h3>Home</h3>
-  <button class="${val ? 'active' : null}" click.delegate="myFunction()">${val}</button>
+  <form>
+    <input type="checkbox" name="isChecked" checked.bind='isChecked'/>
+    <label for="isChecked"><strong>isChecked?</strong> -> ${isChecked}</label>
+    <hr>
+    <button class="${val ? 'active' : null}" click.delegate="myFunction()">${val}</button>
+  </form>
   <hr>
 </template>
