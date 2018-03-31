@@ -8,8 +8,10 @@ export class App {
   configureRouter(config: RouterConfiguration, router: Router) {
     config.title = 'Aurelia Demo'
     config.map([
-      { route: '', moduleId: PLATFORM.moduleName('components/content'), title: 'Home' },
-      { route: '/about', moduleId: PLATFORM.moduleName('components/about'), title: 'About' }
+      { route: '', moduleId: PLATFORM.moduleName('components/home'), title: 'Home' },
+      { route: '/content', moduleId: PLATFORM.moduleName('components/content'), title: 'Content' },
+      { route: '/about', moduleId: PLATFORM.moduleName('components/about'), title: 'About' },
+      { route: '/models', moduleId: PLATFORM.moduleName('components/models'), title: 'Models' }
     ])
     
     this.router = router
