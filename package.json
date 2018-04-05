@@ -1,6 +1,6 @@
 {
   "name": "aurelia-seed",
-  "version": "0.2.8",
+  "version": "0.3.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {

@@ -1,8 +1,7 @@
 export class Home {
-  constructor (public val, public isChecked) {
-    this.val = false
-    this.isChecked = false
-  }
+  val: boolean = false
+  isChecked: boolean = false
+  message: string = 'message'
   
   myFunction () {
     this.val = !this.val

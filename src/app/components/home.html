@@ -1,10 +1,26 @@
 <template>
-  <h3>Home</h3>
+  <require from="components/hello"></require>
+  
+  <h2>Home</h2>
+  <hr>
   <form>
     <input type="checkbox" name="isChecked" checked.bind='isChecked'/>
     <label for="isChecked"><strong>isChecked?</strong> -> ${isChecked}</label>
+    
     <hr>
     <button class="${val ? 'active' : null}" click.delegate="myFunction()">${val}</button>
+    
+    <hr>
+    <div>
+      Basic Data Binding: ${message}
+    </div>
+    <br>
+    <div>
+      <label for="name">Two Way Data Binding:</label>
+      <input value.bind="name" placeholder="Enter text..." name="name" />
+    </div> 
+
+    <hello name.bind="name | upper" if.bind="name"></hello>  
   </form>
   <hr>
 </template>
