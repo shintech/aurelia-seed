@@ -3,7 +3,7 @@ import {HttpClient} from 'aurelia-fetch-client'
 
 @inject(HttpClient)
 export class Model {
-  public data
+  data: string
   
   constructor (private http: HttpClient) {
     this.http = http

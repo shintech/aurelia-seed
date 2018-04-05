@@ -1,5 +1,8 @@
 <template>
   <h2>About</h2>
   <p><strong>Message</strong>: ${message}</p>
+  <div id="div1" drop.trigger="drop($event)" dragover.trigger="dragOver($event)" ></div>
+  
+  <img id="drag1" src="/public/images/react.svg" dragstart.trigger="dragStart($event)" draggable="true" width="85" height="69">
   <hr>
 </template>
