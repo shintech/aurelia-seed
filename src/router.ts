@@ -9,6 +9,7 @@ export default function (options) {
   
   router.route('/models')
   .get(models(options).read.all)
+  .post(models(options).create)
   
   router.route('/models/:id')
   .get(models(options).read.one)  
