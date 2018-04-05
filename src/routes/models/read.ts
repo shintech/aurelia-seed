@@ -5,7 +5,7 @@ export default function (options) {
 
   return {
     one: async function (req, res) {
-      const modelId = parseInt(req.params.id)
+      const modelId: number = parseInt(req.params.id)
 
       let result, status, message, response
 
@@ -58,14 +58,14 @@ export default function (options) {
       }
 
       res.status(200)
-        .format({
-          json: () => {
-            res.set(headers(response, options))
-              .write(JSON.stringify(response))
+      .format({
+        json: () => {
+          res.set(headers(response, options))
+            .write(JSON.stringify(response))
 
-            res.end()
-          }
-        })
+          res.end()
+        }
+      })
     }
   }
 }

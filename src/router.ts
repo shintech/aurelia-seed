@@ -9,6 +9,9 @@ export default function (options) {
   
   router.route('/models')
   .get(models(options).read.all)
+  
+  router.route('/models/:id')
+  .get(models(options).read.one)  
 
   return router
 }
