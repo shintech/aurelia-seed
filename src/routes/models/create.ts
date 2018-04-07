@@ -12,7 +12,7 @@ export default function (options) {
       status = 'success'
       message = `Inserted one model; id: ${result.id}...`
 
-      logger.info(`Insterted one model; id: ${result.id}`)
+      logger.info(`Inserted one model; id: ${result.id}`)
     } catch (err) {
       status = 'error'
       message = err.message
