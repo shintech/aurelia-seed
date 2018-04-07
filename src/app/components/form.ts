@@ -13,20 +13,22 @@ export class FormComponent {
   email: string
   message: string
   optional: number = null
+  feedback: string
 
   constructor (private http: HttpClient) {
     this.http = http
   }
-  
+
   options: IOption[] = [
     { id: 1, val: 'option1' },
     { id: 2, val: 'option2' },
     { id: 3, val: 'option3' }
   ]
-  
+
   async submitForm () {
+    let response
     let http = this.http
-  
+
     let newModel = { 
       first_name: this.firstName,
       last_name: this.lastName,
@@ -34,11 +36,10 @@ export class FormComponent {
       optional: this.optional,
       message: this.message
     }
-    
+
     try {
-      http.fetch('/api/models', {
+      response = await http.fetch('/api/models', {
         headers: {
-          'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Content-Length': Buffer.byteLength(JSON.stringify(newModel), 'utf-8')
         },
@@ -46,7 +47,12 @@ export class FormComponent {
         body: JSON.stringify(newModel)
       })
     } catch (err) {
-      console.error(err)
+      response = {
+        status: 500,
+        statusText: 'Error'
+      }
     }
+
+    this.feedback = `${response.status} -> ${response.statusText}`
   }
 }

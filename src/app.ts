@@ -2,12 +2,14 @@ import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import * as favicon from 'serve-favicon'
 import * as path from 'path'
+import * as morgan from 'morgan'
 
 const app = express()
 
 export default function (options) {
   const { basedir, logger } = options
 
+  app.use(morgan('dev'))
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(bodyParser.json())
 

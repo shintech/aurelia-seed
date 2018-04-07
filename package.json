@@ -1,6 +1,6 @@
 {
   "name": "aurelia-seed",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -33,6 +33,7 @@
     "body-parser": "^1.18.2",
     "chalk": "^2.3.2",
     "express": "^4.16.3",
+    "morgan": "^1.9.0",
     "pg-promise": "^8.2.2",
     "pug": "^2.0.3",
     "serve-favicon": "^2.4.5",
