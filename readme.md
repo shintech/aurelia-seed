@@ -1,8 +1,8 @@
-## Backbone Postgres Seed
+## Aurelia Seed
 
 ### Synopsis
 
-Aurelia + Postgres + Express + Node 6
+Aurelia + Postgres + Express + Node 8
 
 ### Installation
 
