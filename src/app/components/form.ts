@@ -1,22 +1,24 @@
-import {inject} from 'aurelia-framework'
-import {HttpClient} from 'aurelia-fetch-client'
+import {inject, Factory} from 'aurelia-framework'
+import {Model} from './model'
 
 interface IOption {
   id: number
   val: string
 }
 
-@inject(HttpClient)
+@inject(Factory.of(Model))
 export class FormComponent {
   firstName: string
   lastName: string
   email: string
   message: string
-  optional: number = null
+  optional: number
   feedback: string
+  
+  private modelFactory
 
-  constructor (private http: HttpClient) {
-    this.http = http
+  constructor (modelFactory) {
+    this.modelFactory = modelFactory
   }
 
   options: IOption[] = [
@@ -26,33 +28,17 @@ export class FormComponent {
   ]
 
   async submitForm () {
-    let response
-    let http = this.http
-
-    let newModel = { 
+    let newModel = this.modelFactory({
       first_name: this.firstName,
       last_name: this.lastName,
       email: this.email,
       optional: this.optional,
       message: this.message
-    }
+    })
 
-    try {
-      response = await http.fetch('/api/models', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Content-Length': Buffer.byteLength(JSON.stringify(newModel), 'utf-8')
-        },
-        method: 'POST',
-        body: JSON.stringify(newModel)
-      })
-    } catch (err) {
-      response = {
-        status: 500,
-        statusText: 'Error'
-      }
-    }
+    let response = await newModel.save()
 
     this.feedback = `${response.status} -> ${response.statusText}`
   }
+
 }
