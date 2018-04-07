@@ -37,3 +37,6 @@ Aurelia + Postgres + Express + Node 6
     sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'postgres';"
     psql -f db.sql -U postgres
     
+#### TODO
+
+- [ ] repeat.for -> images in about.html

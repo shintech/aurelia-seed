@@ -1,4 +1,4 @@
-export class About {
+export class AboutCustomElement {
   message: string 
   choice: string
   
