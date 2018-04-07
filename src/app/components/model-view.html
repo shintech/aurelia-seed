@@ -1,9 +1,14 @@
 <template bindable='item'>
   <li>
-    <h3>${item.first_name} ${item.last_name}</h3>
-    <p>
-      Email: ${item.email} <br>
-      Option: ${item.optional} <br>
-    </p>
+    <div>
+      <strong>${item.first_name} ${item.last_name}</strong>
+    </div>    
+    
+    <div>
+      <strong>Email</strong>: ${item.email} <br>
+      <strong>Option</strong>: ${item.optional} <br>
+    </div>
+    
+    <p>${item.message}</p>
   </li>
 </template>
