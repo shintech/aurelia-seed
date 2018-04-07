@@ -11,11 +11,12 @@ export class About {
   }
   
   drop (e) {
-    e.target.appendChild(document.getElementById(this.choice))
+    let id: string = e.dataTransfer.getData('id')
+    e.target.appendChild(document.getElementById(id))
   }
   
   dragStart (e) {
-    this.choice = e.target.id
+    e.dataTransfer.setData('id', e.target.id)
     return true
   }
 }
