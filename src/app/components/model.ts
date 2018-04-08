@@ -10,26 +10,31 @@ export class Model {
     this.attributes = attributes
   }
 
-  public async save () {
+  public save () {
     let http = this.http
+    let attributes = this.attributes
     let response
 
-    try {
-      response = await http.fetch('/api/models', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Content-Length': Buffer.byteLength(JSON.stringify(this.attributes), 'utf-8')
-        },
-        method: 'POST',
-        body: JSON.stringify(this.attributes)
-      })
-    } catch (err) {
-      response = {
-        status: 500,
-        statusText: 'Error'
-      }
-    }
+    return new Promise(async function (resolve, reject) {
+      try {
+        response = await http.fetch('/api/models', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(JSON.stringify(attributes), 'utf-8')
+          },
+          method: 'POST',
+          body: JSON.stringify(attributes)
+        })
 
-    return Promise.resolve(response)
+        resolve(response)
+      } catch (err) {
+        response = {
+          status: 500,
+          statusText: 'Error'
+        }
+
+        reject(response)
+      }
+    })
   }
 }

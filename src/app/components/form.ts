@@ -14,7 +14,7 @@ export class FormComponent {
   message: string
   optional: number
   feedback: string
-  
+
   private modelFactory
 
   constructor (modelFactory) {
@@ -28,6 +28,8 @@ export class FormComponent {
   ]
 
   async submitForm () {
+    let response
+
     let newModel = this.modelFactory({
       first_name: this.firstName,
       last_name: this.lastName,
@@ -36,9 +38,12 @@ export class FormComponent {
       message: this.message
     })
 
-    let response = await newModel.save()
+    try {
+      response = await newModel.save()
+    } catch (err) {
+      response = err
+    }
 
     this.feedback = `${response.status} -> ${response.statusText}`
   }
-
 }
